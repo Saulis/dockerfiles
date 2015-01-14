@@ -10,11 +10,6 @@ RUN apt-get install -y \
     unzip \
     wget
 
-#remove unnecessary fonts
-RUN rm -rf /usr/share/fonts/type1 && \
-    rm -rf /usr/share/fonts/X11 && \
-    fc-cache
-
 #set timezone to GMT+2 (assumed by some tests)
 RUN echo "Europe/Helsinki" > /etc/timezone; dpkg-reconfigure -f noninteractive tzdata
 
@@ -60,6 +55,10 @@ RUN wget --no-check-certificate https://bitbucket.org/ariya/phantomjs/downloads/
     bzip2 -d phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2 && \
     tar -xvf phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar
 ENV PATH /opt/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64/bin:$PATH
+RUN rm -rf /usr/share/fonts/type1 && \
+    rm -rf /usr/share/fonts/X11 && \
+    fc-cache
+
 
 EXPOSE 9090
 ENTRYPOINT ["/opt/start.sh"]
