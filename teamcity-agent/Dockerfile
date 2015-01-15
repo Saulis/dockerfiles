@@ -34,7 +34,8 @@ RUN mkdir agent && cd agent && wget http://teamcity.vaadin.com/update/buildAgent
 RUN cd agent && unzip buildAgent.zip
 RUN cd agent && mv conf/buildAgent.dist.properties conf/buildAgent.properties
 RUN sed -i -e 's/localhost:8111/teamcity.vaadin.com/g' /opt/agent/conf/buildAgent.properties
-RUN chmod +x /opt/agent/bin/*.sh
+COPY start.sh /opt/start.sh
+RUN chmod +x /opt/agent/bin/*.sh && chmod +x /opt/*.sh
 
 #apache ant
 ENV ANT_VERSION 1.9.4
@@ -60,4 +61,4 @@ RUN rm -rf /usr/share/fonts/type1 && \
 
 
 EXPOSE 9090
-ENTRYPOINT ["/opt/agent/bin/agent.sh", "run"]
+ENTRYPOINT ["/opt/start.sh", "run"]
