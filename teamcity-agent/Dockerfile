@@ -8,6 +8,7 @@ RUN apt-get install -y \
     procps \
     ttf-dejavu-core \
     unzip \
+    vim \
     wget
 
 #set timezone to GMT+2 (assumed by some tests)
