@@ -61,4 +61,4 @@ RUN rm -rf /usr/share/fonts/type1 && \
 
 
 EXPOSE 9090
-ENTRYPOINT ["/opt/start.sh", "run"]
+ENTRYPOINT ["/opt/start.sh"]
