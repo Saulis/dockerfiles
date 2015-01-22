@@ -1,0 +1,18 @@
+# Install TightVNC
+Invoke-WebRequest http://www.tightvnc.com/download/2.7.10/tightvnc-2.7.10-setup-32bit.msi -Outfile tightvnc-2.7.10-setup-32bit.msi
+msiexec /i c:\tightvnc-2.7.10-setup-32bit.msi /quiet /norestart SET_PASSWORD=1 VALUE_OF_PASSWORD=<password>
+
+# Disable Firewall
+netsh advfirewall set allprofiles state off
+
+# Autologin
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "AutoAdminLogon" /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "DefaultDomainName" /t REG_SZ /d "%COMPUTERNAME%" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "DefaultUserName" /t REG_SZ /d "<username>" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "DefaultPassword" /t REG_SZ /d "<password>" /f
+
+# Install JDK
+cinst jdk8
+
+# Install Selenium node
+Invoke-WebRequest https://github.com/Saulis/Selenium-Grid-Extras/releases/download/1.3.4-HACKED/SeleniumGridExtras-1.3.4-SNAPSHOT-jar-with-dependencies.jar -Outfile SeleniumGridExtras-1.3.4-SNAPSHOT-jar-with-dependencies.jar
