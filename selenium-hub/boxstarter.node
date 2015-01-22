@@ -16,3 +16,11 @@ cinst jdk8
 
 # Install Selenium node
 Invoke-WebRequest https://github.com/Saulis/Selenium-Grid-Extras/releases/download/1.3.4-HACKED/SeleniumGridExtras-1.3.4-SNAPSHOT-jar-with-dependencies.jar -Outfile SeleniumGridExtras-1.3.4-SNAPSHOT-jar-with-dependencies.jar
+# download configs
+# download startup.bat
+
+# Install Browsers
+cinst googlechrome -Version 33.0.1750.154
+cinst firefox -Version 24.0
+
+# Disable IE protected mode?
