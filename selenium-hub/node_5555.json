@@ -1,4 +1,4 @@
-
+{
   "capabilities": [],
   "configuration": {
     "proxy": "com.groupon.seleniumgridextras.grid.proxies.SetupTeardownProxy",
