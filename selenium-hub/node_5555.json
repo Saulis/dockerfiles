@@ -1,0 +1,14 @@
+
+  "capabilities": [],
+  "configuration": {
+    "proxy": "com.groupon.seleniumgridextras.grid.proxies.SetupTeardownProxy",
+    "maxSession": 3,
+    "port": 5555,
+    "register": true,
+    "unregisterIfStillDownAfter": 20000,
+    "hubPort": 4444,
+    "nodeTimeout": 120,
+    "hubHost": "hub.host",
+    "nodePolling": 10000
+  }
+}

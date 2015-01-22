@@ -1,0 +1,21 @@
+{
+  "theConfigMap": {
+    "auto_start_hub": "1",
+    "default_role": "hub",
+    "node_config_files": [
+      "node_5555.json"
+    ],
+    "hub_config": {},
+    "iedriver": {
+      "version": "2.43.0"
+    },
+    "auto_start_node": "0",
+    "auto_update_drivers": "0",
+    "chromedriver": {
+      "version": "2.10"
+    },
+    "webdriver": {
+      "version": "2.43.1"
+    }
+  }
+}
