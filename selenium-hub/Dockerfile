@@ -10,6 +10,6 @@ RUN wget https://github.com/Saulis/Selenium-Grid-Extras/releases/download/1.3.4-
 COPY node_5555.json node_5555.json
 RUN sed -i 's/hub.host/172.31.39.133/g' node_5555.json
 
-COPY selenium_grid_extras_config.json
+COPY selenium_grid_extras_config.json selenium_grid_extras_config.json
 
-ENTRYPOINT["java", "-jar", "SeleniumGridExtras-1.3.4-SNAPSHOT-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "SeleniumGridExtras-1.3.4-SNAPSHOT-jar-with-dependencies.jar"]
