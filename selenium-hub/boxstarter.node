@@ -1,6 +1,10 @@
-# Install TightVNC
-Invoke-WebRequest http://www.tightvnc.com/download/2.7.10/tightvnc-2.7.10-setup-32bit.msi -Outfile tightvnc-2.7.10-setup-32bit.msi
-msiexec /i c:\tightvnc-2.7.10-setup-32bit.msi /quiet /norestart SET_PASSWORD=1 VALUE_OF_PASSWORD=<password>
+# Prerequisites
+# Install Boxstarter
+# Disable-UAC
+# Disable-InternetExplorerESC
+# Disable-MicrosoftUpdate
+# Close IE recommended settings popup on startup
+# Disable IE automatic updates
 
 # Disable Firewall
 netsh advfirewall set allprofiles state off
