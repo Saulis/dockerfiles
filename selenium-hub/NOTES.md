@@ -1,2 +1,3 @@
- nodeStatusCheckTimeout = 5000 (node)
- 
+nodeStatusCheckTimeout = 5000 (node)
+
+ulimit ++ (hub) 
