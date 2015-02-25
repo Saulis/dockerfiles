@@ -3,6 +3,7 @@ FROM debian:wheezy
 RUN apt-get update
 RUN apt-get install -y \
     bzip2 \
+    curl \
     fontconfig \
     git \
     procps \
