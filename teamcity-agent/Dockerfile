@@ -51,6 +51,9 @@ RUN wget http://archive.apache.org/dist/ant/ivy/${IVY_VERSION}/apache-ivy-${IVY_
     cp apache-ivy-${IVY_VERSION}/ivy-${IVY_VERSION}.jar /opt/apache-ant-${ANT_VERSION}/lib/
 ENV ANT_HOME /opt/apache-ant-${ANT_VERSION}
 
+#maven
+RUN apt-get install maven -y
+
 #phantomjs
 ENV PHANTOMJS_VERSION 1.9.7
 RUN wget --no-check-certificate https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2 && \
@@ -61,6 +64,11 @@ RUN rm -rf /usr/share/fonts/type1 && \
     rm -rf /usr/share/fonts/X11 && \
     fc-cache
 
+#node.js
+RUN curl -sL https://deb.nodesource.com/setup | bash -
+RUN apt-get install nodejs -y
+RUN npm install grunt -g
+RUN npm install grunt-cli -g
 
 EXPOSE 9090
 ENTRYPOINT ["/opt/start.sh"]
