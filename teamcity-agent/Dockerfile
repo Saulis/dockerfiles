@@ -70,5 +70,8 @@ RUN apt-get install nodejs -y
 RUN npm install grunt -g
 RUN npm install grunt-cli -g
 
+#git
+RUN echo '[url "https://"]\n\tinsteadOf = git://' > /root/.gitconfig
+
 EXPOSE 9090
 ENTRYPOINT ["/opt/start.sh"]
