@@ -1,8 +1,7 @@
-FROM debian:wheezy
+FROM debian:jessie
 
 RUN apt-get update
 RUN apt-get install -y \
-    build-essential \
     bzip2 \
     curl \
     fontconfig \
@@ -11,7 +10,10 @@ RUN apt-get install -y \
     ttf-dejavu-core \
     unzip \
     vim \
-    wget
+    wget \
+    joe \
+    openssh-server \
+    man
 
 #set timezone to GMT+2 (assumed by some tests)
 RUN echo "Europe/Helsinki" > /etc/timezone; dpkg-reconfigure -f noninteractive tzdata
@@ -41,7 +43,7 @@ COPY start.sh /opt/start.sh
 RUN chmod +x /opt/agent/bin/*.sh && chmod +x /opt/*.sh
 
 #apache ant
-ENV ANT_VERSION 1.9.4
+ENV ANT_VERSION 1.9.6
 RUN wget --no-check-certificate https://www.apache.org/dist/ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
     gunzip apache-ant-${ANT_VERSION}-bin.tar.gz && \
     tar -xvf apache-ant-${ANT_VERSION}-bin.tar
@@ -56,7 +58,7 @@ ENV ANT_HOME /opt/apache-ant-${ANT_VERSION}
 RUN apt-get install maven -y
 
 #phantomjs
-ENV PHANTOMJS_VERSION 1.9.7
+ENV PHANTOMJS_VERSION 1.9.8
 RUN wget --no-check-certificate https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2 && \
     bzip2 -d phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2 && \
     tar -xvf phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar
