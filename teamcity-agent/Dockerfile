@@ -81,5 +81,11 @@ RUN npm install grunt-cli -g
 #git
 RUN echo '[url "https://"]\n\tinsteadOf = git://' > /root/.gitconfig
 
+# Download pre-built PhantomJS 2.0 for this Debian
+RUN mkdir -p /opt/phantomjs2/bin && cd /opt/phantomjs2/bin && wget http://vaadin.com/download/internal/phantomjs2/debian-jessie/phantomjs && chmod 755 phantomjs
+
+# Generate ssh key to allow ssh to localhost
+RUN ssh-keygen  -t rsa -f /root/.ssh/id_rsa -N "" && cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+
 EXPOSE 9090
 ENTRYPOINT ["/opt/start.sh"]

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+service ssh start
+
 trap "/opt/agent/bin/agent.sh stop" SIGINT SIGTERM
 trap "/opt/agent/bin/agent.sh stop kill" SIGKILL
 
