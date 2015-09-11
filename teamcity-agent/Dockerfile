@@ -13,7 +13,12 @@ RUN apt-get install -y \
     wget \
     joe \
     openssh-server \
-    man
+    man \
+    locales
+
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 #set timezone to GMT+2 (assumed by some tests)
 RUN echo "Europe/Helsinki" > /etc/timezone; dpkg-reconfigure -f noninteractive tzdata
